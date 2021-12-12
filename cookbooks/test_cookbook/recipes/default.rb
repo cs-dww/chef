@@ -3,8 +3,11 @@
 # Recipe:: default
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
-execute "update-upgrade" do
-  command "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' upgrade"
-  action :run
-end
+#execute "update-upgrade" do
+#  command "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' upgrade"
+#  action :run
+#end
+ip = '172.31.38.230/24' 
+mask = netmask(ip) # here we use the library method 
+Chef::Log.info("Netmask of #{ip}: #{mask}")
 
